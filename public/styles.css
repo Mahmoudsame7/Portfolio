@@ -1,30 +1,222 @@
-body {font-family: Arial, Helvetica, sans-serif;}
+  body {
+      background-color: #111111;
+      color: white;
+      font-family: "Lato", sans-serif;
+    }
 
-.navbar {
-  width: 100%;
-  background-color: #555;
-  overflow: auto;
+    .sidebar {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #000000;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .main {
+      margin-left: 200px;
+    }
+
+    .sidebar a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #818181;
+      display: block;
+      transition: all 0.4s;
+    }
+
+    .sidebar a:hover {
+      color: #f1f1f1;
+      letter-spacing: 2px;
+    }
+
+    .sidebar a.active {
+      color: #f1f1f1;
+    }
+
+
+
+    button {
+      text-decoration: none;
+      transition: all 0.4s;
+      cursor: pointer;
+    }
+
+    button:hover {
+      letter-spacing: 2px;
+    }
+
+
+    
+
+    
+
+    
+
+    .squircle_avatar {
+      background-image: url('./assets/me.webp');
+      border-radius: 190px 200px 130px 230px;
+      border-style: solid;
+      border-width: 10px;
+      border-color: gray;
+      animation: mymove 15s infinite;
+      animation-iteration-count: infinite;
+      background-size: cover;
+    }
+
+    @keyframes mymove {
+      0% {
+        border-radius: 105px 120px 120px 130px;
+      }
+
+      20% {
+        border-radius: 220px 120px 132px 100px;
+      }
+
+      40% {
+        border-radius: 190px 210px 140px 220px;
+      }
+
+      60% {
+        border-radius: 200px 124px 132px 280px;
+      }
+
+      80% {
+        border-radius: 190px 210px 139px 190px;
+      }
+
+      100% {
+        border-radius: 110px 120px 130px 130px;
+      }
+    }
+
+
+
+    .wrap {
+      color: white;
+      border-right: 0.08em solid white;
+      font-size: 2em;
+    }
+
+    .userlinks>a {
+      display: inline-block;
+    }
+
+    .userlinks>a>i {
+      font-size: 25px;
+      transition: transform .5s ease;
+      /* animate into place */
+      will-change: transform;
+      cursor: pointer;
+    }
+
+    .userlinks>a>i:hover {
+      transform: translateY(-6px);
+    }
+
+    .slide-enter {
+      transform: translateX(-5%);
+      opacity: 0.2;
+    }
+
+    .slide-enter-active {
+      transform: translateX(0);
+      opacity: 1;
+      transition: all 0.75s ease-in-out;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .sidebar {
+        display: flex;
+        transform: translateX(-200px);
+        transition: transform 0.3s ease-in-out;
+      }
+      .sidebar.open {
+      transform: translateX(0);
+      }
+      .main {
+        margin-left: 0px;
+      }
+    }
+
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 10px;
+      
+    }
+
+    .hamburger span {
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: #fff;
+      left: 0;
+      transition: all 0.3s ease-in-out;
+      border-radius: 2px;
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 0;
+    }
+    .hamburger span:nth-child(2) {
+      top: 9px;
+    }
+    .hamburger span:nth-child(3) {
+      top: 18px;
+    }
+
+    /* When active */
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 9px;
+    }
+
+    .custom-flex{
+      flex-direction: row;
+    }
+
+     @media only screen and (max-width: 1200px) {
+      .custom-flex{
+      flex-direction: column;
+      gap: 12px;
+      }
+     }
+    
+    
+    @keyframes progress {
+  from { width: 0%; }
+  to { width: var(--progress) }
 }
 
-.navbar a {
-  float: left;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
+.animate-progress {
+  animation: progress 1.5s ease-out forwards; /* duration 1.5s */
 }
 
-.navbar a:hover {
-  background-color: #000;
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.active {
-  background-color: #04AA6D;
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-  }
-}
